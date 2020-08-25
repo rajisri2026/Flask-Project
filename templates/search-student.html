@@ -1,0 +1,11 @@
+{% extends 'layout.html' %}
+{% block body %}
+<div class="jumbotron text-center">
+    <form action="search-data.py" method="post">
+      <label for="sid">Student Id</label><br>
+      <input type="text" name="id" id="sid"><br><br>
+      <input type="submit" name="submit" value="Submit">
+    <!--  <a href='search-data.py'><button>Submit</button></a><br><br>-->
+    </form>
+</div>
+{% endblock %}
