@@ -45,10 +45,10 @@ def showStudentDetails():
         students= []
         for row in data:
             if not first_line:
-                print(row)
+                students.append(row)
             else:
                 first_line = False
-    return render_template("show-students-details.html",students=row)
+    return render_template("show-students-details.html",students=students)
 
 if __name__ == '__main__':
     app.debug = True
