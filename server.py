@@ -16,6 +16,23 @@ def addStudent():
 def searchStudent():
     return render_template('search-student.html')
 
+@app.route('/searchById', methods=["GET", "POST"])
+def searchById():
+    if request.method == "POST":
+        first_line = True
+        students= []
+        id = request.form["id"]
+        with open('data/students.csv') as csv_file:
+            data = csv.reader(csv_file, delimiter=',')
+            for row in data:
+                if not first_line:
+                    if row:
+                        if row[0] == id:
+                            students.append(row)
+                            return render_template('search-result.html',students = students)
+                else:
+                    first_line = False
+            return redirect(url_for('searchStudent'))
 
 @app.route("/submit", methods=["GET", "POST"])
 def submit():
@@ -49,6 +66,7 @@ def showStudentDetails():
             else:
                 first_line = False
     return render_template("show-students-details.html",students=students)
+
 
 if __name__ == '__main__':
     app.debug = True
