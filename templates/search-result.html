@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<link rel="stylesheet" type="text/css" href="static/style.css">
+<table>
+  <tr>
+    <th>Student Id</th>
+    <th>Name</th>
+    <th>Gender</th>
+    <th>DateOfBirth</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Email Id</th>
+    <th>Qualification</th>
+    <th>Stream</th>
+  </tr>
+  <tr>
+    {% for student in students %}
+    <td>{{student[0]}}</td>
+    <td>{{student[1]}}</td>
+    <td>{{student[2]}}</td>
+    <td>{{student[3]}}</td>
+    <td>{{student[4]}}</td>
+    <td>{{student[5]}}</td>
+    <td>{{student[6]}}</td>
+    <td>{{student[7]}}</td>
+    <td>{{student[8]}}</td>
+    {% endfor %}
+  </tr>
+</table>
+{% endblock %}
